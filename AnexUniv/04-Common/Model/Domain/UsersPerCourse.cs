@@ -1,10 +1,12 @@
-﻿using Model.Auth;
+﻿using Common.CustomFilters;
+using Model.Auth;
+using Model.Helper;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Model.Domain
 {
-    public class UsersPerCourse
+    public class UsersPerCourse : AuditEntity, ISoftDeleted
     {
         public int Id { get; set; }
         [DefaultValue(false)]
@@ -16,5 +18,7 @@ namespace Model.Domain
         [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
         public string UserId { get; set; }
+
+        public bool Deleted { get; set; }
     }
 }
