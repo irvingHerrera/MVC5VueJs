@@ -39,8 +39,9 @@ namespace Common
 
         public enum Status
         {
-            Enable,
-            Disable
+            Pending,
+            Approved,
+            Rejected
         }
 
         public enum MyFilters
